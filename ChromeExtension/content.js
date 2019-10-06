@@ -25,26 +25,6 @@ $(window).on("load", function() {
         .parent()
     );
 
-  $(".aHS-bnq")
-    .parent()
-    .parent()
-    .after(
-      $(".aHS-bnx")
-        .parent()
-        .parent()
-    );
-  $(".aHS-bnx")
-    .parent()
-    .parent()
-    .after(
-      $(".aHS-bnv")
-        .parent()
-        .parent()
-    );
-
-  $(".aHS-bnv:eq(1)").hide();
-  $(".aHS-bnx:eq(1)").hide();
-
   $(".aHS-bnt, .aHS-bnu, .aHS-bnq")
     .parent()
     .parent()
@@ -67,15 +47,42 @@ $(window).on("load", function() {
     '<a class="qj qr" href="https://mail.google.com/mail/u/0/#spam"></a>'
   );
 
+  $(".aHS-bnx").css({ marginLeft: "12px" });
+
+  $(".aHS-bnv").css({ marginLeft: "50px", marginTop: "-32px" });
+
+  var inbox = $(".aHS-bnt")
+    .find("a")
+    .attr("href");
+  var baseurl = inbox.substring(0, inbox.length - 6);
+
+  $(".aHS-bnx").click(function() {
+    window.location.href = baseurl + "#trash";
+  });
+
+  $(".aHS-bnv").click(function() {
+    window.location.href = baseurl + "#spam";
+  });
+
+  $(".aHS-bnq")
+    .parent()
+    .parent()
+    .after(
+      $(".aHS-bnx")
+        .parent()
+        .parent()
+    );
   $(".aHS-bnx")
     .parent()
     .parent()
-    .css({ marginLeft: "12px" });
+    .after(
+      $(".aHS-bnv")
+        .parent()
+        .parent()
+    );
 
-  $(".aHS-bnv")
-    .parent()
-    .parent()
-    .css({ marginLeft: "50px", marginTop: "-32px" });
+  $(".aHS-bnv:eq(1)").hide();
+  $(".aHS-bnx:eq(1)").hide();
 
   // var arrow = $(".TH.aii.J-J5-Ji");
   // $(".aHS-aHO").prepend(arrow);
