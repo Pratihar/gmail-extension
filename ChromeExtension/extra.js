@@ -1,8 +1,22 @@
-$(window).on("load", function() {
-  $(".n6")
-    .find("span")
-    .trigger("click");
+function tinkerCat() {
+  $(".aS6, .aS4, .aS3, .aS5")
+    .find(".aio, .nL")
+    .hide();
 
+  $(".aS4")
+    .find(".aHS-bnr")
+    .css({ marginLeft: "60px", marginTop: "-32px" });
+
+  $(".aS3")
+    .find(".aHS-bnr")
+    .css({ marginLeft: "110px", marginTop: "-32px" });
+
+  $(".aS5")
+    .find(".aHS-bnr")
+    .css({ marginLeft: "160px", marginTop: "-32px" });
+}
+
+function mainOrganiser() {
   $(".wT").prepend(
     $(".aHS-aHO")
       .parent()
@@ -25,6 +39,42 @@ $(window).on("load", function() {
         .parent()
     );
 
+  $(".aHS-bnt")
+    .parent()
+    .parent()
+    .css({ marginLeft: "12px" });
+  $(".aHS-bnu")
+    .parent()
+    .parent()
+    .css({ marginLeft: "12px" });
+  $(".aHS-bnq")
+    .parent()
+    .parent()
+    .css({ marginLeft: "12px" });
+}
+
+function hideMore() {
+  $(".aHS-aHO:eq(1)").hide();
+  $(".aHS-bnv:eq(1)").hide();
+  $(".aHS-bnx:eq(1)").hide();
+  // $(".aY7xie:eq(1)")
+  //   .parent()
+  //   .parent()
+  //   .parent()
+  //   .hide();
+}
+
+function triggerMore() {
+  $(".n6")
+    .find("span")
+    .trigger("click");
+}
+
+$(window).on("load", function() {
+  triggerMore();
+  mainOrganiser();
+
+  // Trash and Spam Positioning
   $(".zw").before(
     $(".aHS-bnx")
       .parent()
@@ -36,15 +86,7 @@ $(window).on("load", function() {
       .parent()
   );
 
-  $(".aHS-bnv:eq(1)").hide();
-  $(".aHS-bnx:eq(1)").hide();
-
-  $(".aHS-bnt, .aHS-bnu, .aHS-bnq")
-    .parent()
-    .parent()
-    .css({ marginLeft: "12px" });
-
-  // Filter Trash and Spam Icons
+  // Hide Trash and Spam Labels
   $(".aHS-bnx, .aHS-bnv")
     .find(".aio")
     .hide();
@@ -61,6 +103,7 @@ $(window).on("load", function() {
     '<a class="qj qr" href="https://mail.google.com/mail/u/0/#spam"></a>'
   );
 
+  // Icons relative Positioning
   $(".aHS-bnx")
     .parent()
     .parent()
@@ -71,45 +114,65 @@ $(window).on("load", function() {
     .parent()
     .css({ marginLeft: "50px", marginTop: "-32px" });
 
+  hideMore();
+
+  $(".HwgYue").prepend(
+    $(".aHS-bnw")
+      .parent()
+      .parent()
+  );
+  $(".HwgYue").prepend(
+    $(".aHS-bu1")
+      .parent()
+      .parent()
+  );
+
+  // $(".aHS-bnw")
+  //   .parent()
+  //   .parent()
+  //   .hide();
+  // $(".aHS-bu1")
+  //   .parent()
+  //   .parent()
+  //   .hide();
+  // $(".HwgYue").prepend(
+  //   $(".aY7xie")
+  //     .parent()
+  //     .parent()
+  //     .parent()
+  //     .parent()
+  // );
+
   // var arrow = $(".TH.aii.J-J5-Ji");
   // $(".aHS-aHO").prepend(arrow);
   // arrow.removeClass("aii");
   // arrow.addClass("aih");
 
-  $(".n6")
-    .find("span")
-    .trigger("click");
+  // $(".aY7xie")
+  //   .parent()
+  //   .parent()
+  //   .parent()
+  //   .after(
+  //     $(".aHS-bu1")
+  //       .parent()
+  //       .parent()
+  //   );
 
   $(".J-Ke.n4").click(function() {
-    $(".byl.aJZ.a0L").css({
-      "border-top": "1px solid white",
-      "border-bottom": "1px solid white"
-    });
-    $(".byl.aJZ.a0L").css({
-      "box-shadow": "0px 1px 0px #000000, 0px -1px 0px #000000"
-    });
-    $(".aHS-aHO:eq(1)").hide();
-    $(".aHS-bnv:eq(1)").hide();
-    $(".aHS-bnx:eq(1)").hide();
+    hideMore();
   });
 
-  $(document).arrive(".aS6", function() {
-    $(".aS6, .aS4, .aS3, .aS5")
-      .find(".aio, .nL")
-      .hide();
+  tinkerCat();
 
-    $(".aS4")
-      .find(".aHS-bnr")
-      .css({ marginLeft: "60px", marginTop: "-32px" });
-
-    $(".aS3")
-      .find(".aHS-bnr")
-      .css({ marginLeft: "110px", marginTop: "-32px" });
-
-    $(".aS5")
-      .find(".aHS-bnr")
-      .css({ marginLeft: "160px", marginTop: "-32px" });
-  });
+  // $(".aY7xie")
+  //   .parent()
+  //   .parent()
+  //   .parent()
+  //   .click(function() {
+  //     setTimeout(function() {
+  //       tinkerCat();
+  //     }, 50);
+  //   });
 
   // arrow.click(function() {
   //   $(".aHS-bnt").toggle();
@@ -175,13 +238,5 @@ $(window).on("load", function() {
   //     //   }
   //     // }
   //   }
-  // });
-
-  // $(".aHS-bnv, .aHS-bnx").on("click", function(e) {
-  //   console.log("clicked", this);
-  // });
-
-  // $(".TN.bzz.aHS-aHO").hover(function() {
-  //   $(this).toggleClass("TO NQ");
   // });
 });

@@ -10,9 +10,10 @@
         "jquery-3.4.1.min.js",
         "arrive.min.js",
         "content.js",
-        "jquery.contextMenu.min.js"
+        "jquery.contextMenu.min.js",
+        "bootstrap.min.js"
       ],
-      "css": ["jquery.contextMenu.min.css"],
+      "css": ["jquery.contextMenu.min.css", "bootstrap.min.css"],
       "run_at": "document_end"
     }
   ],
