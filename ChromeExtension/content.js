@@ -25,16 +25,22 @@ $(window).on("load", function() {
         .parent()
     );
 
-  $(".zw").before(
-    $(".aHS-bnx")
-      .parent()
-      .parent()
-  );
-  $(".zw").before(
-    $(".aHS-bnv")
-      .parent()
-      .parent()
-  );
+  $(".aHS-bnq")
+    .parent()
+    .parent()
+    .after(
+      $(".aHS-bnx")
+        .parent()
+        .parent()
+    );
+  $(".aHS-bnx")
+    .parent()
+    .parent()
+    .after(
+      $(".aHS-bnv")
+        .parent()
+        .parent()
+    );
 
   $(".aHS-bnv:eq(1)").hide();
   $(".aHS-bnx:eq(1)").hide();
@@ -75,6 +81,14 @@ $(window).on("load", function() {
   // $(".aHS-aHO").prepend(arrow);
   // arrow.removeClass("aii");
   // arrow.addClass("aih");
+
+  $(".byl.aJZ.a0L").css({
+    "border-top": "1px solid white",
+    "border-bottom": "1px solid white"
+  });
+  $(".byl.aJZ.a0L").css({
+    "box-shadow": "0px 1px 0px #000000, 0px -1px 0px #000000"
+  });
 
   $(".n6")
     .find("span")
