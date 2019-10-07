@@ -114,6 +114,22 @@ $(window).on("load", function() {
     $(".aHS-bnx:eq(1)").hide();
   });
 
+  $(".aS6, .aS4, .aS3, .aS5")
+    .find(".aio, .nL")
+    .hide();
+
+  $(".aS4")
+    .find(".aHS-bnr")
+    .css({ marginLeft: "60px", marginTop: "-32px" });
+
+  $(".aS3")
+    .find(".aHS-bnr")
+    .css({ marginLeft: "110px", marginTop: "-32px" });
+
+  $(".aS5")
+    .find(".aHS-bnr")
+    .css({ marginLeft: "160px", marginTop: "-32px" });
+
   $(document).arrive(".aS6", function() {
     $(".aS6, .aS4, .aS3, .aS5")
       .find(".aio, .nL")
