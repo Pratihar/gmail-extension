@@ -32,7 +32,7 @@ $(window).on("load", function() {
     .find(".aio")
     .find("span")
     .find("a")
-    .html("&nbsp");
+    .html("&nbsp;&emsp;");
 
   $(".aHS-bnx").css({ marginLeft: "12px" });
   $(".aHS-bnv").css({ marginLeft: "50px", marginTop: "-13.5%" });
@@ -103,11 +103,11 @@ $(window).on("load", function() {
     .find(".aio")
     .find("span")
     .find("a")
-    .html("&nbsp");
+    .html("&nbsp;&emsp;");
   $(".aS6, .aS4, .aS3, .aS5")
     .find(".aio")
     .find(".bsU")
-    .html("&nbsp");
+    .html("&nbsp;&emsp;");
   $(".aS4")
     .find(".aHS-bnr")
     .css({ marginLeft: "60px", marginTop: "-13.5%" });
@@ -123,11 +123,11 @@ $(window).on("load", function() {
       .find(".aio")
       .find("span")
       .find("a")
-      .html("&nbsp");
+      .html("&nbsp;&emsp;");
     $(".aS6, .aS4, .aS3, .aS5")
       .find(".aio")
       .find(".bsU")
-      .html("&nbsp");
+      .html("&nbsp;&emsp;");
     $(".aS4")
       .find(".aHS-bnr")
       .css({ marginLeft: "60px", marginTop: "-13.5%" });
