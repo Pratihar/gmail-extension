@@ -9,11 +9,9 @@
         "inboxsdk.js",
         "jquery-3.4.1.min.js",
         "arrive.min.js",
-        "content.js",
-        "jquery.contextMenu.min.js",
-        "bootstrap.min.js"
+        "content.js"
       ],
-      "css": ["jquery.contextMenu.min.css", "bootstrap.min.css"],
+      "css": [],
       "run_at": "document_end"
     }
   ],
