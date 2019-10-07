@@ -30,22 +30,28 @@ $(window).on("load", function() {
   // Filter Trash and Spam Icons
   $(".aHS-bnx, .aHS-bnv")
     .find(".aio")
-    .hide();
+    .find("span")
+    .find("a")
+    .html("&nbsp");
 
   $(".aHS-bnx").css({ marginLeft: "12px" });
   $(".aHS-bnv").css({ marginLeft: "50px", marginTop: "-32px" });
 
-  var inbox = $(".aHS-bnt")
-    .find("a")
-    .attr("href");
-  var baseurl = inbox.substring(0, inbox.length - 6);
-
   $(".aHS-bnx").click(function() {
-    window.location.href = baseurl + "#trash";
+    window.location.href = $(this)
+      .find(".aio")
+      .find("span")
+      .find("a")
+      .attr("href");
   });
   $(".aHS-bnv").click(function() {
-    window.location.href = baseurl + "#spam";
+    window.location.href = $(this)
+      .find(".aio")
+      .find("span")
+      .find("a")
+      .attr("href");
   });
+
   $(".aHS-bnq")
     .parent()
     .parent()
@@ -94,8 +100,14 @@ $(window).on("load", function() {
   });
 
   $(".aS6, .aS4, .aS3, .aS5")
-    .find(".aio, .nL")
-    .hide();
+    .find(".aio")
+    .find("span")
+    .find("a")
+    .html("&nbsp");
+  $(".aS6, .aS4, .aS3, .aS5")
+    .find(".aio")
+    .find(".bsU")
+    .html("&nbsp");
   $(".aS4")
     .find(".aHS-bnr")
     .css({ marginLeft: "60px", marginTop: "-32px" });
@@ -108,8 +120,14 @@ $(window).on("load", function() {
 
   $(document).arrive(".aS6", function() {
     $(".aS6, .aS4, .aS3, .aS5")
-      .find(".aio, .nL")
-      .hide();
+      .find(".aio")
+      .find("span")
+      .find("a")
+      .html("&nbsp");
+    $(".aS6, .aS4, .aS3, .aS5")
+      .find(".aio")
+      .find(".bsU")
+      .html("&nbsp");
     $(".aS4")
       .find(".aHS-bnr")
       .css({ marginLeft: "60px", marginTop: "-32px" });
