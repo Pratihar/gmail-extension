@@ -1,3 +1,33 @@
+function resizeResponse() {
+  if ($(".aim").height() == 24) {
+    $(".aHS-bnv").css({ marginLeft: "50px", marginTop: "-10%" });
+  } else {
+    $(".aHS-bnv").css({ marginLeft: "50px", marginTop: "-13.5%" });
+  }
+
+  if ($(".aim").height() == 24) {
+    $(".aS4")
+      .find(".aHS-bnr")
+      .css({ marginLeft: "60px", marginTop: "-10%" });
+    $(".aS3")
+      .find(".aHS-bnr")
+      .css({ marginLeft: "110px", marginTop: "-10%" });
+    $(".aS5")
+      .find(".aHS-bnr")
+      .css({ marginLeft: "160px", marginTop: "-10%" });
+  } else {
+    $(".aS4")
+      .find(".aHS-bnr")
+      .css({ marginLeft: "60px", marginTop: "-13.5%" });
+    $(".aS3")
+      .find(".aHS-bnr")
+      .css({ marginLeft: "110px", marginTop: "-13.5%" });
+    $(".aS5")
+      .find(".aHS-bnr")
+      .css({ marginLeft: "160px", marginTop: "-13.5%" });
+  }
+}
+
 $(window).on("load", function() {
   $(".n6")
     .find("span")
@@ -35,7 +65,11 @@ $(window).on("load", function() {
     .html("&nbsp;&emsp;");
 
   $(".aHS-bnx").css({ marginLeft: "12px" });
-  $(".aHS-bnv").css({ marginLeft: "50px", marginTop: "-13.5%" });
+  if ($(".aim").height() == 24) {
+    $(".aHS-bnv").css({ marginLeft: "50px", marginTop: "-10%" });
+  } else {
+    $(".aHS-bnv").css({ marginLeft: "50px", marginTop: "-13.5%" });
+  }
 
   $(".aHS-bnx").click(function() {
     window.location.href = $(this)
@@ -108,15 +142,32 @@ $(window).on("load", function() {
     .find(".aio")
     .find(".bsU")
     .html("&nbsp;&emsp;");
-  $(".aS4")
-    .find(".aHS-bnr")
-    .css({ marginLeft: "60px", marginTop: "-13.5%" });
-  $(".aS3")
-    .find(".aHS-bnr")
-    .css({ marginLeft: "110px", marginTop: "-13.5%" });
-  $(".aS5")
-    .find(".aHS-bnr")
-    .css({ marginLeft: "160px", marginTop: "-13.5%" });
+  if ($(".aim").height() == 24) {
+    $(".aS4")
+      .find(".aHS-bnr")
+      .css({ marginLeft: "60px", marginTop: "-10%" });
+    $(".aS3")
+      .find(".aHS-bnr")
+      .css({ marginLeft: "110px", marginTop: "-10%" });
+    $(".aS5")
+      .find(".aHS-bnr")
+      .css({ marginLeft: "160px", marginTop: "-10%" });
+  } else {
+    $(".aS4")
+      .find(".aHS-bnr")
+      .css({ marginLeft: "60px", marginTop: "-13.5%" });
+    $(".aS3")
+      .find(".aHS-bnr")
+      .css({ marginLeft: "110px", marginTop: "-13.5%" });
+    $(".aS5")
+      .find(".aHS-bnr")
+      .css({ marginLeft: "160px", marginTop: "-13.5%" });
+  }
+
+  var element = $(".aim:eq(0)");
+  new ResizeSensor(element, function() {
+    resizeResponse();
+  });
 
   $(document).arrive(".aS6", function() {
     $(".aS6, .aS4, .aS3, .aS5")
@@ -128,15 +179,27 @@ $(window).on("load", function() {
       .find(".aio")
       .find(".bsU")
       .html("&nbsp;&emsp;");
-    $(".aS4")
-      .find(".aHS-bnr")
-      .css({ marginLeft: "60px", marginTop: "-13.5%" });
-    $(".aS3")
-      .find(".aHS-bnr")
-      .css({ marginLeft: "110px", marginTop: "-13.5%" });
-    $(".aS5")
-      .find(".aHS-bnr")
-      .css({ marginLeft: "160px", marginTop: "-13.5%" });
+    if ($(".aim").height() == 24) {
+      $(".aS4")
+        .find(".aHS-bnr")
+        .css({ marginLeft: "60px", marginTop: "-10%" });
+      $(".aS3")
+        .find(".aHS-bnr")
+        .css({ marginLeft: "110px", marginTop: "-10%" });
+      $(".aS5")
+        .find(".aHS-bnr")
+        .css({ marginLeft: "160px", marginTop: "-10%" });
+    } else {
+      $(".aS4")
+        .find(".aHS-bnr")
+        .css({ marginLeft: "60px", marginTop: "-13.5%" });
+      $(".aS3")
+        .find(".aHS-bnr")
+        .css({ marginLeft: "110px", marginTop: "-13.5%" });
+      $(".aS5")
+        .find(".aHS-bnr")
+        .css({ marginLeft: "160px", marginTop: "-13.5%" });
+    }
   });
 
   // arrow.click(function() {
