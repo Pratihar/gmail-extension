@@ -1,37 +1,51 @@
+// Position Spam Button and Category Section
 function resizeResponse() {
-  if ($(".aim").height() == 24) {
-    $(".aHS-bnv").css({ marginLeft: "50px", marginTop: "-10%" });
-  } else {
-    $(".aHS-bnv").css({ marginLeft: "50px", marginTop: "-13.5%" });
-  }
+  var top;
 
-  if ($(".aim").height() == 24) {
-    $(".aS4")
-      .find(".aHS-bnr")
-      .css({ marginLeft: "60px", marginTop: "-10%" });
-    $(".aS3")
-      .find(".aHS-bnr")
-      .css({ marginLeft: "110px", marginTop: "-10%" });
-    $(".aS5")
-      .find(".aHS-bnr")
-      .css({ marginLeft: "160px", marginTop: "-10%" });
-  } else {
-    $(".aS4")
-      .find(".aHS-bnr")
-      .css({ marginLeft: "60px", marginTop: "-13.5%" });
-    $(".aS3")
-      .find(".aHS-bnr")
-      .css({ marginLeft: "110px", marginTop: "-13.5%" });
-    $(".aS5")
-      .find(".aHS-bnr")
-      .css({ marginLeft: "160px", marginTop: "-13.5%" });
-  }
+  if ($(".aim").height() == 24) top = "-10%";
+  else top = "-13.5%";
+
+  $(".aHS-bnv").css({ marginLeft: "38px", marginTop: top });
+
+  $(".aS6, .aS4, .aS3, .aS5")
+    .find(".aio")
+    .find("span")
+    .find("a")
+    .html("&nbsp;&emsp;");
+  $(".aS6, .aS4, .aS3, .aS5")
+    .find(".aio")
+    .find(".bsU")
+    .html("&nbsp;&emsp;");
+
+  $(".aS4")
+    .find(".aHS-bnr")
+    .css({ marginLeft: "60px", marginTop: top });
+  $(".aS3")
+    .find(".aHS-bnr")
+    .css({ marginLeft: "110px", marginTop: top });
+  $(".aS5")
+    .find(".aHS-bnr")
+    .css({ marginLeft: "160px", marginTop: top });
+}
+
+// Give Border to Category Section
+function giveBorder() {
+  $(".byl.aJZ.a0L").css({
+    "border-top": "1px solid white",
+    "border-bottom": "1px solid white"
+  });
+  $(".byl.aJZ.a0L").css({
+    "box-shadow": "0px 1px 0px #000000, 0px -1px 0px #000000"
+  });
 }
 
 $(window).on("load", function() {
+  // Trigger More Button
   $(".n6")
     .find("span")
     .trigger("click");
+
+  // Set All Mail, Inbox, Sent and Drafts
   $(".wT").prepend(
     $(".aHS-aHO")
       .parent()
@@ -53,24 +67,18 @@ $(window).on("load", function() {
         .parent()
         .parent()
     );
-  $(".aHS-bnt, .aHS-bnu, .aHS-bnq")
-    .parent()
-    .parent()
-    .css({ marginLeft: "12px" });
-  // Filter Trash and Spam Icons
+
+  // Give Margin to Inbox, Sent and Drafts
+  $(".byl").css({ marginLeft: "12px" });
+
+  // Extract Trash and Spam Icons from Buttons
   $(".aHS-bnx, .aHS-bnv")
     .find(".aio")
     .find("span")
     .find("a")
     .html("&nbsp;&emsp;");
 
-  $(".aHS-bnx").css({ marginLeft: "12px" });
-  if ($(".aim").height() == 24) {
-    $(".aHS-bnv").css({ marginLeft: "50px", marginTop: "-10%" });
-  } else {
-    $(".aHS-bnv").css({ marginLeft: "50px", marginTop: "-13.5%" });
-  }
-
+  // Trash and Spam Button Routing
   $(".aHS-bnx").click(function() {
     window.location.href = $(this)
       .find(".aio")
@@ -86,6 +94,7 @@ $(window).on("load", function() {
       .attr("href");
   });
 
+  // Position Trash and Spam Buttons
   $(".aHS-bnq")
     .parent()
     .parent()
@@ -102,6 +111,8 @@ $(window).on("load", function() {
         .parent()
         .parent()
     );
+
+  // Hide Trash and Spam from More Section
   $(".aHS-bnv:eq(1)").hide();
   $(".aHS-bnx:eq(1)").hide();
 
@@ -110,59 +121,44 @@ $(window).on("load", function() {
   // arrow.removeClass("aii");
   // arrow.addClass("aih");
 
-  $(".byl.aJZ.a0L").css({
-    "border-top": "1px solid white",
-    "border-bottom": "1px solid white"
-  });
-  $(".byl.aJZ.a0L").css({
-    "box-shadow": "0px 1px 0px #000000, 0px -1px 0px #000000"
-  });
+  giveBorder();
+
   $(".n6")
     .find("span")
     .trigger("click");
+
   $(".J-Ke.n4").click(function() {
-    $(".byl.aJZ.a0L").css({
-      "border-top": "1px solid white",
-      "border-bottom": "1px solid white"
-    });
-    $(".byl.aJZ.a0L").css({
-      "box-shadow": "0px 1px 0px #000000, 0px -1px 0px #000000"
-    });
+    giveBorder();
+
     $(".aHS-aHO:eq(1)").hide();
     $(".aHS-bnv:eq(1)").hide();
     $(".aHS-bnx:eq(1)").hide();
+
+    if (
+      $(".HwgYue")
+        .find(".aJZ")
+        .height() == 32
+    ) {
+      $(".HwgYue")
+        .find(".aY7xie")
+        .parent()
+        .click();
+    }
+
+    var cat = $(".HwgYue").find(".aJZ");
+    new ResizeSensor(cat, function() {
+      $(".aHS-aHO:eq(1)").hide();
+      resizeResponse();
+    });
   });
 
-  $(".aS6, .aS4, .aS3, .aS5")
-    .find(".aio")
-    .find("span")
-    .find("a")
-    .html("&nbsp;&emsp;");
-  $(".aS6, .aS4, .aS3, .aS5")
-    .find(".aio")
-    .find(".bsU")
-    .html("&nbsp;&emsp;");
-  if ($(".aim").height() == 24) {
-    $(".aS4")
-      .find(".aHS-bnr")
-      .css({ marginLeft: "60px", marginTop: "-10%" });
-    $(".aS3")
-      .find(".aHS-bnr")
-      .css({ marginLeft: "110px", marginTop: "-10%" });
-    $(".aS5")
-      .find(".aHS-bnr")
-      .css({ marginLeft: "160px", marginTop: "-10%" });
-  } else {
-    $(".aS4")
-      .find(".aHS-bnr")
-      .css({ marginLeft: "60px", marginTop: "-13.5%" });
-    $(".aS3")
-      .find(".aHS-bnr")
-      .css({ marginLeft: "110px", marginTop: "-13.5%" });
-    $(".aS5")
-      .find(".aHS-bnr")
-      .css({ marginLeft: "160px", marginTop: "-13.5%" });
-  }
+  resizeResponse();
+
+  var cat = $(".aJZ");
+  new ResizeSensor(cat, function() {
+    $(".aHS-aHO:eq(1)").hide();
+    resizeResponse();
+  });
 
   var element = $(".aim:eq(0)");
   new ResizeSensor(element, function() {
@@ -170,36 +166,7 @@ $(window).on("load", function() {
   });
 
   $(document).arrive(".aS6", function() {
-    $(".aS6, .aS4, .aS3, .aS5")
-      .find(".aio")
-      .find("span")
-      .find("a")
-      .html("&nbsp;&emsp;");
-    $(".aS6, .aS4, .aS3, .aS5")
-      .find(".aio")
-      .find(".bsU")
-      .html("&nbsp;&emsp;");
-    if ($(".aim").height() == 24) {
-      $(".aS4")
-        .find(".aHS-bnr")
-        .css({ marginLeft: "60px", marginTop: "-10%" });
-      $(".aS3")
-        .find(".aHS-bnr")
-        .css({ marginLeft: "110px", marginTop: "-10%" });
-      $(".aS5")
-        .find(".aHS-bnr")
-        .css({ marginLeft: "160px", marginTop: "-10%" });
-    } else {
-      $(".aS4")
-        .find(".aHS-bnr")
-        .css({ marginLeft: "60px", marginTop: "-13.5%" });
-      $(".aS3")
-        .find(".aHS-bnr")
-        .css({ marginLeft: "110px", marginTop: "-13.5%" });
-      $(".aS5")
-        .find(".aHS-bnr")
-        .css({ marginLeft: "160px", marginTop: "-13.5%" });
-    }
+    resizeResponse();
   });
 
   // arrow.click(function() {
