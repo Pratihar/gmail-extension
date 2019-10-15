@@ -11,7 +11,8 @@
         "arrive.min.js",
         "content.js",
         "ResizeSensor.js",
-        "ElementQueries.js"
+        "ElementQueries.js",
+        "gmail.js"
       ],
       "css": [],
       "run_at": "document_end"
