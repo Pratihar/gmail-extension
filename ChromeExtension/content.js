@@ -1,11 +1,13 @@
 // Position Spam Button and Category Section
-function resizeResponse() {
-  var top;
-
-  if ($(".aim").height() == 24) top = "-10%";
-  else top = "-13.5%";
-
-  $(".aHS-bnv").css({ marginLeft: "38px", marginTop: top });
+function resizeResponse(top) {
+  $(".aHS-bnv").css({ marginLeft: "38px", marginTop: top.toString() + "%" });
+  $(".TK")
+    .find(".asa")
+    .css({
+      opacity: 0.77,
+      marginLeft: "190px",
+      marginTop: (top + 0.6).toString() + "%"
+    });
 
   $(".aS6, .aS4, .aS3, .aS5")
     .find(".aio")
@@ -19,13 +21,13 @@ function resizeResponse() {
 
   $(".aS4")
     .find(".aHS-bnr")
-    .css({ marginLeft: "60px", marginTop: top });
+    .css({ marginLeft: "60px", marginTop: top.toString() + "%" });
   $(".aS3")
     .find(".aHS-bnr")
-    .css({ marginLeft: "110px", marginTop: top });
+    .css({ marginLeft: "110px", marginTop: top.toString() + "%" });
   $(".aS5")
     .find(".aHS-bnr")
-    .css({ marginLeft: "160px", marginTop: top });
+    .css({ marginLeft: "160px", marginTop: top.toString() + "%" });
 }
 
 // Give Border to Category Section
@@ -86,19 +88,14 @@ function positionSpam() {
     );
 }
 
-function modifyMore() {
-  var top;
-
-  if ($(".aim").height() == 24) top = "-10%";
-  else top = "-13.5%";
-
+function modifyMore(top) {
   $(".n6").after($(".CL:eq(0)"));
 
   $(".CL:eq(0)")
     .find(".CK")
     .html("&nbsp;");
 
-  $(".CL:eq(0)").css({ marginLeft: "190px", marginTop: top });
+  $(".CL:eq(0)").css({ marginLeft: "190px", marginTop: top.toString() + "%" });
 
   // Trash and Spam Button Routing
   $(".CL:eq(0)").click(function() {
@@ -126,7 +123,12 @@ $(window).on("load", function() {
     .find("span")
     .trigger("click");
 
-  gmail = Gmail();
+  var top;
+
+  if ($(".aim").height() == 24) top = -10;
+  else top = -13.5;
+
+  var archive = '<div class="asa"><div class="ar8 T-I-J3 J-J5-Ji"></div></div>';
 
   //console.log(gmail.get.unread_social_emails());
 
@@ -152,6 +154,27 @@ $(window).on("load", function() {
         .parent()
         .parent()
     );
+  $(".aHS-bnq")
+    .parent()
+    .parent()
+    .after(archive);
+
+  var currurl = $(location).attr("href");
+
+  var spliturl = currurl.split("/");
+  var baseurl = spliturl[0] + spliturl[1] + spliturl[2] + spliturl[3] + "/";
+
+  var archivelink =
+    baseurl + "#search/-in%3Ainbox+-in%3Asent+-in%3Adrafts+has%3Anouserlabels";
+
+  $(".TK")
+    .find(".asa")
+    .click(function() {
+      window.location.href = archivelink;
+      setTimeout(function() {
+        location.reload();
+      }, 5000);
+    });
 
   // Trash and Spam Button Routing
   $(".aHS-bnu").click(function() {
@@ -169,7 +192,7 @@ $(window).on("load", function() {
       .attr("href");
   });
 
-  modifyMore();
+  modifyMore(top);
 
   // Give Margin to Inbox, Sent and Drafts
   $(".byl").css({ marginLeft: "12px" });
@@ -215,7 +238,7 @@ $(window).on("load", function() {
     var cat = $(".HwgYue").find(".aJZ");
     new ResizeSensor(cat, function() {
       $(".aHS-aHO:eq(1)").hide();
-      resizeResponse();
+      resizeResponse(top);
     });
 
     // var target = $(".HwgYue").find(".TK:eq(0)")[0];
@@ -239,17 +262,17 @@ $(window).on("load", function() {
     //$(".HwgYue").find(".TK:eq(0)").find(".aim").length;
   });
 
-  resizeResponse();
+  resizeResponse(top);
 
   var cat = $(".aJZ");
   new ResizeSensor(cat, function() {
     $(".aHS-aHO:eq(1)").hide();
-    resizeResponse();
+    resizeResponse(top);
   });
 
   var element = $(".aim:eq(0)");
   new ResizeSensor(element, function() {
-    resizeResponse();
+    resizeResponse(top);
   });
 
   var fake = $(".TK").clone();
@@ -257,8 +280,8 @@ $(window).on("load", function() {
   // select the target node
   var target = $(".TK");
 
-  var fakeset = new Set();
-  var targetset = new Set();
+  // var fakeset = new Set();
+  // var targetset = new Set();
 
   // configuration of the observer:
   var config = { attributes: true, childList: true, characterData: true };
