@@ -86,7 +86,39 @@ function positionSpam() {
     );
 }
 
-function mutation(target) {}
+function modifyMore() {
+  var top;
+
+  if ($(".aim").height() == 24) top = "-10%";
+  else top = "-13.5%";
+
+  $(".n6").after($(".CL:eq(0)"));
+
+  $(".CL:eq(0)")
+    .find(".CK")
+    .html("&nbsp;");
+
+  $(".CL:eq(0)").css({ marginLeft: "190px", marginTop: top });
+
+  // Trash and Spam Button Routing
+  $(".CL:eq(0)").click(function() {
+    window.location.href = $(this)
+      .find("a")
+      .attr("href");
+  });
+}
+
+function preparefakeset(fake, fakeset) {
+  for (var i = 0; i < fake.find(".TN").length; i++) {
+    fakeset.add(fake.find(".TN:eq(" + i + ")").attr("class"));
+  }
+}
+
+function preparetargetset(target, targetset) {
+  for (var i = 0; i < target.find(".TN").length; i++) {
+    targetset.add(target.find(".TN:eq(" + i + ")").attr("class"));
+  }
+}
 
 $(window).on("load", function() {
   // Trigger More Button
@@ -95,6 +127,8 @@ $(window).on("load", function() {
     .trigger("click");
 
   gmail = Gmail();
+
+  //console.log(gmail.get.unread_social_emails());
 
   // Set All Mail, Inbox, Sent and Drafts
   $(".wT").prepend(
@@ -119,6 +153,24 @@ $(window).on("load", function() {
         .parent()
     );
 
+  // Trash and Spam Button Routing
+  $(".aHS-bnu").click(function() {
+    window.location.href = $(this)
+      .find(".aio")
+      .find("span")
+      .find("a")
+      .attr("href");
+  });
+  $(".aHS-bnq").click(function() {
+    window.location.href = $(this)
+      .find(".aio")
+      .find("span")
+      .find("a")
+      .attr("href");
+  });
+
+  modifyMore();
+
   // Give Margin to Inbox, Sent and Drafts
   $(".byl").css({ marginLeft: "12px" });
 
@@ -135,12 +187,19 @@ $(window).on("load", function() {
     .find("span")
     .trigger("click");
 
+  $(".CJ").html("&nbsp;");
+
   $(".J-Ke.n4").click(function() {
+    $(".CJ").html("&nbsp;");
+    $(".CL:eq(1)").hide();
+
     giveBorder();
 
     $(".aHS-aHO:eq(1)").hide();
     $(".aHS-bnv:eq(1)").hide();
     $(".aHS-bnx:eq(1)").hide();
+    $(".aHS-bnu:eq(1)").hide();
+    $(".aHS-bnq:eq(1)").hide();
 
     if (
       $(".HwgYue")
@@ -158,6 +217,26 @@ $(window).on("load", function() {
       $(".aHS-aHO:eq(1)").hide();
       resizeResponse();
     });
+
+    // var target = $(".HwgYue").find(".TK:eq(0)")[0];
+
+    // // configuration of the observer:
+    // var config = { attributes: true, childList: true, characterData: true };
+
+    // // create an observer instance
+    // var observer = new MutationObserver(function(mutations) {
+    //   mutations.forEach(function(mutation) {
+    //     console.log("change");
+    //     setTimeout(function() {
+    //       location.reload();
+    //     }, 1000);
+    //   });
+    // });
+
+    // // pass in the target node, as well as the observer options
+    // observer.observe(target, config);
+
+    //$(".HwgYue").find(".TK:eq(0)").find(".aim").length;
   });
 
   resizeResponse();
@@ -176,7 +255,10 @@ $(window).on("load", function() {
   var fake = $(".TK").clone();
 
   // select the target node
-  var target = $(".TK")[0];
+  var target = $(".TK");
+
+  var fakeset = new Set();
+  var targetset = new Set();
 
   // configuration of the observer:
   var config = { attributes: true, childList: true, characterData: true };
@@ -185,18 +267,58 @@ $(window).on("load", function() {
   var observer = new MutationObserver(function(mutations) {
     mutations.forEach(function(mutation) {
       console.log("change");
+
+      // fakelen = fake.find(".TN").length;
+      // targetlen = target.find(".TN").length;
+
+      // preparefakeset(fake, fakeset);
+      // preparetargetset(target, targetset);
+
+      // console.log(fakeset, targetset);
+
+      // var classes;
+
+      // let extrafake = new Set([...fakeset].filter(x => !targetset.has(x)));
+      // let extratarget = new Set([...targetset].filter(x => !fakeset.has(x)));
+
+      // extratarget.forEach(val => {
+      //   classes = val.split(" ");
+      //   console.log(classes);
+      //   fake.append(
+      //     target
+      //       .find("." + classes[2])
+      //       .parent()
+      //       .parent()
+      //   );
+      // });
+      // extrafake.forEach(val => {
+      //   classes = val.split(" ");
+      //   console.log(classes);
+      //   fake
+      //     .find("." + classes[2])
+      //     .parent()
+      //     .parent()
+      //     .hide();
+      // });
+
       // $("<div>" + fake + "</div>")
       //   .find(".bsU:eq(1)")
       //   .text(gmail.get.unread_draft_emails());
+
       $(".TK")[0].replaceWith(fake[0]);
       fake = $(".TK").clone();
-      target = $(".TK")[0];
-      observer.observe(target, config);
+      target = $(".TK");
+      $(".CJ").html("&nbsp;");
+      observer.observe(target[0], config);
     });
   });
 
   // pass in the target node, as well as the observer options
-  observer.observe(target, config);
+  observer.observe(target[0], config);
+
+  $(".HwgYue")
+    .find(".TK:eq(0)")
+    .find(".aim").length;
 
   // arrow.click(function() {
   //   $(".aHS-bnt").toggle();
