@@ -1,5 +1,10 @@
 // Position Spam Button and Category Section
-function resizeResponse(top) {
+function resizeResponse() {
+  var top;
+
+  if ($(".aim").height() == 24) top = -10;
+  else top = -13.5;
+
   $(".aHS-bnv").css({ marginLeft: "38px", marginTop: top.toString() + "%" });
   // $(".TK")
   //   .find(".asa")
@@ -88,7 +93,12 @@ function positionSpam() {
     );
 }
 
-function modifyMore(top) {
+function modifyMore() {
+  var top;
+
+  if ($(".aim").height() == 24) top = -10;
+  else top = -13.5;
+
   $(".n6").after($(".CL:eq(0)"));
 
   $(".CL:eq(0)")
@@ -127,11 +137,6 @@ $(window).on("load", function() {
       .trigger("click");
 
     console.log("run");
-
-    var top;
-
-    if ($(".aim").height() == 24) top = -10;
-    else top = -13.5;
 
     var archive =
       '<div class="asa"><div class="ar8 T-I-J3 J-J5-Ji"></div></div>';
@@ -218,7 +223,7 @@ $(window).on("load", function() {
         .attr("href");
     });
 
-    modifyMore(top);
+    modifyMore();
 
     // Give Margin to Inbox, Sent and Drafts
     $(".byl").css({ marginLeft: "12px" });
@@ -264,7 +269,7 @@ $(window).on("load", function() {
       var cat = $(".HwgYue").find(".aJZ");
       new ResizeSensor(cat, function() {
         $(".aHS-aHO:eq(1)").hide();
-        resizeResponse(top);
+        resizeResponse();
       });
 
       var target = $(".HwgYue").find(".TK:eq(0)")[0];
@@ -290,17 +295,20 @@ $(window).on("load", function() {
         .find(".aim").length;
     });
 
-    resizeResponse(top);
+    resizeResponse();
 
     var cat = $(".aJZ");
     new ResizeSensor(cat, function() {
       $(".aHS-aHO:eq(1)").hide();
-      resizeResponse(top);
+      resizeResponse();
     });
 
     var element = $(".aim:eq(0)");
     new ResizeSensor(element, function() {
-      resizeResponse(top);
+      $(".TK")
+        .find(".asa")
+        .css({ height: $(".aim").height() });
+      resizeResponse();
     });
 
     var fake = $(".TK").clone();
